@@ -1,0 +1,401 @@
+/*-- progress bars --*/
+.skill-w3l {
+	padding:27px 0 0;
+}
+.skill-w3l h3 {
+	font-size:30px;
+	font-weight:normal;
+	color:#000;
+	text-align:center;
+	padding-bottom:10px;
+	font-family: 'Exo 2', sans-serif;
+}
+.sonny_progressbar {
+	margin-bottom:19px;
+}
+.sonny_progressbar:nth-child(5) {
+    margin-bottom: 0px;
+}
+.sonny_progressbar p.title {
+	font-size: 16px;
+	font-weight:normal;
+	line-height: 20px;
+	margin: 0;
+	float:none;
+	padding: 5px 0;
+}
+.sonny_progressbar .bar-container {
+	position: relative;
+	height: 40px;
+}
+.sonny_progressbar .bar-container.shadow {
+	-moz-box-shadow: 0px 5px 7px -3px rgba(0,0,0,.5);
+	-webkit-box-shadow: 0px 5px 7px -3px rgba(0,0,0,.5);
+	box-shadow: 0px 5px 7px -3px rgba(0,0,0,.5);
+	margin-top: 1em;
+}
+.sonny_progressbar .backgroundBar {
+	position: absolute;
+	bottom: 0;
+	top: 0;
+	left: 0;
+	right: 0;
+}
+.sonny_progressbar .bar {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+}
+.sonny_progressbar .targetBar {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	-webkit-animation: Animation 2s infinite ease-in-out;
+	-moz-animation: Animation 2s infinite ease-in-out;
+	animation: Animation 2s infinite ease-in-out;
+}
+.sonny_progressbar .targetBar.loader {
+	-webkit-animation: AnimationB 4s infinite ease-in-out;
+	-moz-animation: AnimationB 4s infinite ease-in-out;
+	animation: AnimationB 4s infinite ease-in-out;
+	background-image: url('../images/animated-overlay.gif');
+}
+.sonny_progressbar .bar-container.border .bar, .sonny_progressbar .bar-container.border .targetBar, .sonny_progressbar .bar-container.border .backgroundBar {
+	border-bottom: 3px solid rgba(0,0,0,.2);
+}
+.sonny_progressbar .progress-percent {
+	font-family: Montserrat, sans-serif;
+	font-size: 1em;
+	position: absolute;
+	right: 15px;
+}
+
+@keyframes Animation {
+  0%   { opacity:.4; }
+  50%   { opacity:1; }
+  100% { opacity:.4; }
+}
+@-moz-keyframes Animation{
+  0%   { opacity:.4; }
+  50%   { opacity:1; }
+  100% { opacity:.4; }
+}
+@-webkit-keyframes Animation{
+  0%   { opacity:.4; }
+  50%   { opacity:1; }
+  100% { opacity:.4; }
+}
+@keyframes AnimationB {
+  0%   { opacity:.01; }
+  50%   { opacity:.1; }
+  100% { opacity:.01; }
+}
+@-moz-keyframes AnimationB {
+  0%   { opacity:.01; }
+  50%   { opacity:.1; }
+  100% { opacity:.01; }
+}
+@-webkit-keyframes AnimationB {
+  0%   { opacity:.01; }
+  50%   { opacity:.1; }
+  100% { opacity:.01; }
+}
+/*-- /progress bars --*/
+
+
+/* Popup container */
+.popup {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.delete_transaction_button {
+  cursor: pointer;
+}
+
+
+/* The actual popup (appears on top) */
+.popup .popuptext {
+  visibility: hidden;
+  width: 160px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 8px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -120px;
+}
+
+/* Popup arrow 
+.popup .popuptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+*/
+/* Toggle this class when clicking on the popup container (hide and show the popup) */
+.popup .show {
+  visibility: visible;
+  -webkit-animation: fadeIn 1s;
+  animation: fadeIn 1s
+}
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+  from {opacity: 0;} 
+  to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity:1 ;}
+}
+
+
+
+
+
+/******** SAP ************/
+.sap_tabs{
+	clear:both;
+	margin-top:20px;
+}
+.sap_tabs h3{
+	color: #555555;
+	font-size: 1.5em;
+	font-weight:700;
+	margin-bottom:15px;
+}
+.sap_tabs h4{
+	font-size: 0.95em;
+	color: #ACACAC;
+}
+.sap_tabs h3 a{
+	font-size:.7em;
+}
+.sap_tabs h3 a:hover{
+	text-decoration:underline;
+}
+.sap_tabs p {
+    font-size: 13px;
+    color: #272D30;
+    line-height: 30px;
+    font-weight: 300;
+}
+.facts{
+	padding: 4%;
+}
+.top1{
+	margin-top: 2%;
+}
+.resp-tabs-list {
+	width: 100%;
+}
+.resp-tab-item:first-child{
+	border-left:none;
+}
+.resp-tab-item{
+	border-left: 1px solid #465E78;
+	color: #ffffff;
+	font-size: 1em;
+	background: #C5CDD1;
+	font-family: 'Open Sans', sans-serif;
+	text-transform: capitalize;
+	cursor: pointer;
+	padding:12px 0;
+	display: inline-block;
+	margin: 0;
+	text-align: center;
+	list-style: none;
+	float: left;
+	width: 25%;
+	outline: none;
+	-webkit-transition: all 0.3s ease-out;
+	-moz-transition: all 0.3s ease-out;
+	-ms-transition: all 0.3s ease-out;
+	-o-transition: all 0.3s ease-out;
+	transition: all 0.3s ease-out;
+}
+.resp-tab-item:hover {
+    background: #d95459;
+    text-shadow: none;
+    color: #FFF;
+}
+.resp-tab-active {
+    background:#d95459;
+    text-shadow: none;
+    color: #ffffff;
+}
+.resp-tabs-container {
+	padding: 0px;
+	background-color: #fff;
+	clear: left;
+}
+h2.resp-accordion {
+	cursor: pointer;
+	padding: 5px;
+	display: none;
+}
+.resp-tab-content {
+	display: none;
+}
+.resp-content-active, .resp-accordion-active {
+   display: block;
+}
+h2.resp-accordion {
+	font-size:1em;
+	margin: 0px;
+	padding: 10px 15px;
+	background:#C5CDD1;
+	margin:10px 0;
+	color:#FFF;
+}
+h2.resp-accordion:hover{
+	background:#5BA4A4;
+	text-shadow: none;
+	color: #FFF;
+}
+.tab_style{
+	margin-top:19px;
+}
+.tab-img{
+	width:35%;
+	float:left;
+	padding:0;
+}
+.tab-text{
+	width:65%;
+	float:left;
+}
+.tab-text h4 {
+    color: #555555;
+    font-size: 1.3em;
+    font-weight: 700;
+}
+.tab-text h5{
+    text-align: left;
+    color: #676767;
+    font-size: 14px;
+    font-weight: 700;
+	margin:10px 0;
+}
+.tab-text h5,.tab-text h4{
+	text-align:left;
+}
+@media only screen and (max-width:480px) {
+	.sap_tabs{
+		padding-top:0;
+	}
+	.resp-tabs-container{
+		padding:10px;
+	}
+ul.resp-tabs-list {
+  	display: none;
+}
+h2.resp-accordion {
+  	display: block;
+}
+.resp-vtabs .resp-tab-content {
+  	border: 1px solid #C1C1C1;
+}
+.resp-vtabs .resp-tabs-container {
+	border: none;
+	float: none;
+	width: 100%;
+	min-height: initial;
+	clear: none;
+}
+.resp-accordion-closed {
+	display: none !important;
+}
+}
+
+
+
+
+.list-type1{
+width:20em;
+margin:0 auto;
+    margin-top: 1em;
+}
+
+.list-type1 ol{
+counter-reset: li;
+list-style: none;
+*list-style: decimal;
+font-size: 15px;
+font-family: 'Raleway', sans-serif;
+padding: 0;
+margin-bottom: 4em;
+}
+.list-type1 ol ol{
+margin: 0 0 0 2em;
+}
+
+.list-type1 a{
+position: relative;
+display: block;
+padding: .4em .4em .4em 2em;
+*padding: .4em;
+margin: .5em 0;
+background: #d95459;
+color: #000;
+text-decoration: none;
+-moz-border-radius: .3em;
+-webkit-border-radius: .3em;
+border-radius: 10em;
+transition: all .2s ease-in-out;
+}
+
+.list-type1 a:hover{
+background: #d6d4d4;
+text-decoration:none;
+transform: scale(1.1);
+}
+
+.float-right{
+	float:right;
+	margin-right: 2em;
+}
+
+
+
+.topnav {
+  overflow: hidden;
+  background-color: white;
+  position: relative;
+}
+
+.topnav #myLinks {
+  display: block;
+}
+
+.topnav a {
+    float: left;
+    color: #999;
+    padding: 14px 0.49em;
+    text-decoration: none;
+    font-weight: 500;
+    border-right: 1px solid #E9E9E9;
+}
+
+.topnav a.icon {
+  float: right;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}

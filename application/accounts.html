@@ -1,0 +1,292 @@
+
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE HTML>
+<html>
+<head>
+<link rel="shortcut icon" href="images/icon.jpg" />
+<title>Money App</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords"
+	content="budget tool, south africa, track spending, financial tool, personal finance tool" />
+<script type="application/x-javascript">
+	
+	
+	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
+
+
+</script>
+<link href="css/bootstrap.min.css" rel='stylesheet' type='text/css' />
+<!-- Custom Theme files -->
+<link href="css/style.css" rel='stylesheet' type='text/css' />
+<link href="css/imported/imported-ui-style.css" rel='stylesheet'
+	type='text/css' />
+
+<link
+	href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css"
+	rel="stylesheet" type="text/css" />
+<link href="css/MonthPicker.min.css" rel="stylesheet" type="text/css" />
+
+
+<link href="css/font-awesome.css" rel="stylesheet">
+
+<link
+	href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css"
+	rel="stylesheet" type="text/css" />
+<script src="js/jquery.min.js">
+	
+</script>
+<script src="js/bootstrap.min.js">
+	
+</script>
+
+<!-- Mainly scripts -->
+<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+<script src="js/MonthPicker.min.js"></script>
+<script src="js/jquery.metisMenu.js"></script>
+<script src="js/jquery.slimscroll.min.js"></script>
+<!-- Custom and plugin javascript -->
+<link href="css/custom.css" rel="stylesheet">
+<script src="js/custom.js"></script>
+<script src="js/screenfull.js"></script>
+<script src="js/commons.js"></script>
+<script src="js/events/account.js"></script>
+
+<script>
+	$(function() {
+		$('#supported').text('Supported/allowed: ' + !!screenfull.enabled);
+
+		if (!screenfull.enabled) {
+			return false;
+		}
+
+		$('#toggle').click(function() {
+			screenfull.toggle($('#container')[0]);
+		});
+
+	});
+</script>
+
+
+<style>
+@media ( max-width :1360px) {.topnav a {    font-size: 2em;}}@media ( max-width :768px) {.topnav a {    font-size: 1.5em;}}
+</style>
+</head>
+<body>
+	<div id="fb-root"></div>
+	<script async defer crossorigin="anonymous"
+		src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v3.3&appId=773233792802919&autoLogAppEvents=1"></script>
+	<div id="wrapper">
+		<!----->
+		<div w3-include-html="menu.html"></div>
+
+		<div id="page-wrapper" class="gray-bg dashbard-1">
+			<div class="content-main">
+
+				<!--banner-->
+				<div class="banner datebanner">
+					<h2 id="fading_message"></h2>
+				</div>
+				
+				
+				<form id="account_form" >
+				
+				<div class="col-md-12 form-group2 form-group1 group-mail padded-div">
+					<input type="text"  id="addNewAccount" name="addNewAccount" value="true" class="display-none">
+					
+					<label class="control-label">New Account</label> <i class="fa fa-minus-circle display-none" onclick="hideNewTransaction()" id="minusButton"></i><i class="fa fa-plus-circle display" id="plusButton" onclick="showNewTransaction()"></i>
+					<br>
+					<div id="new_transaction_div" class="display-none">
+					<select id="select_accounttypes" name="accounttypes">
+
+					</select > 
+<input type="text" placeholder="Account Name" required="" id="textAccontName" class="thirthypercentwidth" name="account_name" maxlength="30">
+
+
+<input type="text" placeholder="balance/value e.g -2500" required="" id="textAccountAmount" class="thirthypercentwidth" name="textbalanceAmount" maxlength="8">
+
+ <button type="submit" class="btn btn-default">Submit</button></div>
+					
+ 
+ </form>
+ 
+
+				<!--//banner-->
+				<!--grid-->
+				<div class="inbox-mail">
+					<div class="col-md-4 compose category-filter-div">
+
+						<nav class="nav-sidebar" id="desktop_nav">
+						<h2>Filter</h2>
+							<ul class="nav tabs">
+								<li class="active category-li"><a href="#bank_accounts"
+									data-toggle="tab"><i class="fa fa-star-o"></i>Bank Accounts
+										<div class="clearfix"></div></a></li>
+								<li class="category-li"><a href="#credit" data-toggle="tab"><i
+										class="fa fa-star-o"></i>Credit</a></li>
+								<li class="category-li"><a href="#investments" data-toggle="tab"><i
+										class="fa fa-star-o"></i>Investments</a></li>
+								<li class="category-li"><a href="#mortgage" data-toggle="tab"><i
+										class="fa fa-star-o"></i>Mortgage
+										<div class="clearfix"></div></a></li>
+								<li class="category-li"><a href="#property" data-toggle="tab"><i
+										class="fa fa-star-o"></i>Property</a></li>
+
+								<li class="category-li"><a href="#vehicles" data-toggle="tab"><i
+										class="fa fa-star-o"></i>Vehicles</a></li>
+
+							</ul>
+						</nav>
+						<nav class="topnav" id="mobile_nav">
+							
+							<div>
+								<a href="#bank_accounts"
+									data-toggle="tab" class="category-li"><i class="fa fa-usd" aria-hidden="true"></i></a> 
+								
+								<a href="#credit"
+									data-toggle="tab" class="category-li"><i class="fa fa-credit-card" aria-hidden="true"></i></a> 
+								
+								<a href="#investments"
+									data-toggle="tab" class="category-li"><i class="fa fa-line-chart" aria-hidden="true"></i></a> 
+								
+								<a href="#mortgage"
+									data-toggle="tab" class="category-li"><i class="fa fa-building-o" aria-hidden="true"></i></a> 
+								
+								
+								<a href="#property"
+									data-toggle="tab" class="category-li"><i class="fa fa-building" aria-hidden="true"></i></a> 
+								<a href="#vehicles"
+									data-toggle="tab" class="category-li"><i class="fa fa-car" aria-hidden="true"></i></a> 
+								
+								
+								
+							</div>
+							
+						</nav>
+						<div class="content-box">
+							<div id='InlineMenu'></div>
+						</div>
+					</div>
+					<!-- tab content -->
+
+
+					<div class="col-md-8 tab-content tab-content-in">
+
+						<div class="alert alert-danger display-none" role="alert"
+							id="lbl_message"></div>
+						<div class="tab-pane active text-style" id="bank_accounts">
+
+						</div>
+						<div class="tab-pane text-style" id="credit"></div>
+						<div class="tab-pane text-style" id="investments"></div>
+						<div class="tab-pane text-style" id="mortgage"></div>
+
+						<div class="tab-pane text-style" id="property"></div>
+
+						<div class="tab-pane text-style" id="vehicles"></div>
+
+					</div>
+					<div class="clearfix"></div>
+				</div>
+
+			</div>
+
+			<!--//grid-->
+			<!---->
+			<div class="copy">
+				<p>
+					&copy; 2016 Minimal. All Rights Reserved | Design by <a
+						href="http://w3layouts.com/" target="_blank">W3layouts</a>
+				</p>
+			</div>
+		</div>
+	</div>
+	<div class="clearfix"></div>
+	</div>
+
+	<!---->
+	<!--scrolling js-->
+	
+	<!--//scrolling js-->
+
+
+	<!-- progress bars -->
+	<script src="js/progressbar.js"></script>
+	<script>
+		// Display the progress bar calling progressbar.js
+
+		//Menu
+		$(".spinDown").click(function() {
+			var target = $(this).data("target");
+			var scrollFix = -80;
+			target = "#" + target;
+			$("html,body").animate({
+				scrollTop : $(target).offset().top + scrollFix
+			}, 1000);
+			return false;
+		});
+	</script>
+
+
+	<script>
+		function includeHTML() {
+			var z, i, elmnt, file, xhttp;
+			/* Loop through a collection of all HTML elements: */
+			z = document.getElementsByTagName("*");
+			for (i = 0; i < z.length; i++) {
+				elmnt = z[i];
+				/*search for elements with a certain atrribute:*/
+				file = elmnt.getAttribute("w3-include-html");
+				if (file) {
+					/* Make an HTTP request using the attribute value as the file name: */
+					xhttp = new XMLHttpRequest();
+					xhttp.onreadystatechange = function() {
+						if (this.readyState == 4) {
+							if (this.status == 200) {
+								elmnt.innerHTML = this.responseText;
+							}
+							if (this.status == 404) {
+								elmnt.innerHTML = "Page not found.";
+							}
+							/* Remove the attribute, and call this function once more: */
+							elmnt.removeAttribute("w3-include-html");
+							includeHTML();
+						}
+					}
+					xhttp.open("GET", file, true);
+					xhttp.send();
+
+					/* Exit the function: */
+					return;
+				}
+			}
+
+			if (sessionStorage.whyage65_username) {
+				if (!sessionStorage.whyage65_username.includes("null")) {
+					$('#user_name').html(
+							sessionStorage.whyage65_username
+									+ "<i class=\"caret\"></i>")
+				} else {
+					$('#user_name').html("User<i class=\"caret\"></i>")
+				}
+
+			}
+
+		}
+	</script>
+
+	<script>
+		includeHTML();
+	</script>
+
+	<script src="js/events/security.js">
+		
+	</script>
+</body>
+</html>
+

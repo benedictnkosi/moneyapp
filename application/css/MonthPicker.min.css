@@ -1,0 +1,60 @@
+.month-picker{display:inline-block;position:absolute;z-index:9999}.month-picker table{border-collapse:separate;border-spacing:2px 2px}.month-picker td{padding:0}.month-picker .ui-button-text{padding:.4em 0}.month-picker-header{margin:3px 3px 0}.month-picker-year-table{width:100%;-ms-user-select:none;-moz-user-select:-moz-none;-khtml-user-select:none;-webkit-user-select:none;user-select:none}.month-picker-year-table a{border:1px solid transparent}.month-picker-year-table .ui-button{font-size:1.1em;width:1.5em;height:1.5em;cursor:default;margin:0}.month-picker-year-table .month-picker-title{text-align:center}.month-picker-year-table .month-picker-title .ui-button{font-size:1em;padding:.1em 0;width:100%;font-weight:700}.month-picker-year-table .ui-button-text{padding:0}.month-picker-month-table td{height:35px;text-align:center}.month-picker-month-table .ui-button{width:4.2em;margin:.2em}.month-picker-open-button{height:20px;width:20px;vertical-align:bottom}.month-picker-invalid-message{display:none;background-color:#ff0}.month-picker-disabled{background-color:#e1e1e1}
+
+
+#map,#map1,#map2,#map3{
+  display: block;
+  height: 350px;
+  margin: 0 auto;
+}
+#map.large,#map1.large,#map2.large,#map3.large{
+  height:500px;
+}
+
+.overlay{
+  display:block;
+  text-align:center;
+  color:#fff;
+  font-size:60px;
+  line-height:80px;
+  opacity:0.8;
+  background:#4477aa;
+  border:solid 3px #336699;
+  border-radius:4px;
+  box-shadow:2px 2px 10px #333;
+  text-shadow:1px 1px 1px #666;
+  padding:0 4px;
+}
+
+.overlay_arrow{
+  left:50%;
+  margin-left:-16px;
+  width:0;
+  height:0;
+  position:absolute;
+}
+.overlay_arrow.above{
+  bottom:-15px;
+  border-left:16px solid transparent;
+  border-right:16px solid transparent;
+  border-top:16px solid #336699;
+}
+.overlay_arrow.below{
+  top:-15px;
+  border-left:16px solid transparent;
+  border-right:16px solid transparent;
+  border-bottom:16px solid #336699;
+}
+/*--responsive--*/
+
+.month-picker .ui-button-text {
+    color: black;
+}
+
+.month-picker table {
+        width: 100%;
+}
+
+
+#MonthPicker_InlineMenu{
+	 width: 100%;
+}

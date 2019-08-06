@@ -1,0 +1,18 @@
+Error: [17/May/2018 20:39:45] response sent to server
+Error: [17/May/2018 20:40:33] response sent to server
+Error: [17/May/2018 20:40:33] calling processOrder
+Error: [17/May/2018 20:41:24] response sent to server
+Error: [17/May/2018 20:41:24] calling writeDataToDB
+Error: [17/May/2018 20:41:24] calling writeDataToDB2
+Error: [17/May/2018 20:42:00] response sent to server
+Error: [17/May/2018 20:42:00] calling writeDataToDB
+Error: [17/May/2018 20:42:00] calling writeDataToDB2
+Error: [17/May/2018 20:42:46] response sent to server
+Error: [17/May/2018 20:42:46] calling writeDataToDB
+Error: [17/May/2018 20:42:46] calling writeDataToDB2
+Error: [17/May/2018 20:44:04] response sent to server
+Error: [17/May/2018 20:44:04] calling writeDataToDB
+Error: [17/May/2018 20:44:04] calling writeDataToDB2
+Error: [17/May/2018 20:44:30] response sent to server
+Error: [17/May/2018 20:44:30] calling writeDataToDB
+Error: [17/May/2018 20:44:30] calling writeDataToDB2

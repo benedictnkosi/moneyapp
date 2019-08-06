@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Budget" table="budget">
+    <indexes>
+      <index name="budget_user_idx" columns="user"/>
+      <index name="budget_transaction_idx" columns="transaction"/>
+    </indexes>
+    <id name="budgetId" type="integer" column="budget_id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="amount" type="float" column="amount" precision="10" scale="0" nullable="true"/>
+    <field name="active" type="integer" column="active" nullable="true">
+      <options>
+        <option name="unsigned"/>
+        <option name="default">1</option>
+      </options>
+    </field>
+    <many-to-one field="transaction" target-entity="TransactionName" fetch="LAZY">
+      <join-columns>
+        <join-column name="transaction" referenced-column-name="transaction_name_id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="user" target-entity="User" fetch="LAZY">
+      <join-columns>
+        <join-column name="user" referenced-column-name="user_id"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>
+

@@ -1,0 +1,11 @@
+C:\xampp\htdocs\moneyapp_doctrine\
+C:\xampp\htdocs\moneyapp_doctrine\css\
+C:\xampp\htdocs\moneyapp_doctrine\css\imported\
+C:\xampp\htdocs\moneyapp_doctrine\js\
+C:\xampp\htdocs\moneyapp_doctrine\js\events\
+C:\xampp\htdocs\moneyapp_doctrine\img\
+C:\xampp\htdocs\moneyapp_doctrine\images\
+C:\xampp\htdocs\moneyapp_doctrine\src\AppBundle\Controller\
+C:\xampp\htdocs\moneyapp_doctrine\src\AppBundle\Logic\
+C:\xampp\htdocs\moneyapp_doctrine\src\AppBundle\Resources\config\doctrine\
+C:\xampp\htdocs\moneyapp_doctrine\src\AppBundle\Entity\
