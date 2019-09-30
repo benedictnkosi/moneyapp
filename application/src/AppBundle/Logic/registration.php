@@ -37,7 +37,7 @@ class Registration
 	 */
 	public function __construct($entityManager)
 	{
-		if (isset($_POST["register"])) {
+	    if (isset($_REQUEST["register"])) {
 			$this->registerUser($entityManager);
 		}
 	}
@@ -52,10 +52,10 @@ class Registration
 		try{
 				
 			// escaping, additionally removing everything that could be (html/javascript-) code
-			
-			$email = $_POST['register'];
-			$password = $_POST['password'];
-			$confirm = $_POST['confirm'];
+		   // echo "we are here";
+			$email = $_REQUEST['register'];
+			$password = $_REQUEST['password'];
+			$confirm = $_REQUEST['confirm'];
             
 			
 			if((strpos($email," ")) || (strpos($password," "))){
@@ -116,11 +116,14 @@ class Registration
 					
 				} else {
 					$this->errors[] = "Sorry, your registration failed. Please try again.";
+					$this->messages[] = "Sorry, your registration failed. Please try again.";
+					
 				}
 			}
 
 		} catch (Exception $e) {
 			$this->errors[] = $e->getMessage();
+			$this->messages[] =  $e->getMessage();
 		}
 
 	}

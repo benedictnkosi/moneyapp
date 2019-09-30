@@ -8,23 +8,32 @@ require_once (__DIR__ . '/../Entity/User.php');
 require_once (__DIR__ . '/../Entity/TransactionName.php');
 require_once (__DIR__ . '/../Entity/UserTransactionName.php');
 
-if (isset($_POST['register'])) {
-    if ($_POST['register']) :
+if (isset($_REQUEST['register'])) {
+    if ($_REQUEST['register']) :
         registerEmail($entityManager);
 	endif;
 
 }
 
-if (isset($_GET['logout'])) {
-    if ($_GET['logout']) :
-       // echo 'we are loging out';
-        logout($entityManager);
-    endif;
 
+if (isset($_REQUEST['getuser'])) {
+    if ($_REQUEST['getuser']) :
+    getuser($entityManager);
+    endif;
+    
 }
 
-if (isset($_POST['login'])) {
-    if ($_POST['login']) :
+
+if (isset($_REQUEST['logout'])) {
+    if ($_REQUEST['logout']) :
+       
+        logout($entityManager);
+    endif;
+}
+
+if (isset($_REQUEST['login'])) {
+    if ($_REQUEST['login']) :
+   // echo "we here";
         login($entityManager);
 
 	endif;
@@ -60,6 +69,7 @@ function registerEmail($entityManager)
         try {
             startSession();
         } catch (Exception $e) {}
+        //echo "watup";
         $registration = new Registration($entityManager);
         $errors = array();
         $messages = array();
@@ -67,6 +77,9 @@ function registerEmail($entityManager)
         $errors = $registration->errors;
         $messages = $registration->messages;
         $user = $registration->user;
+        
+        //print_r($messages);
+        //print_r($errors);
         
         if (sizeof($registration->errors) > 0) {
             $response['status'] = 2;
@@ -120,6 +133,32 @@ function login($entityManager)
         echo json_encode($response);
     }
 }
+
+
+function getuser($entityManager)
+{
+    try {
+        $login = new login($entityManager);
+        $login->getuser($entityManager);
+       
+        $errors = $login->errors;
+        
+        if (sizeof($login->errors) > 0) {
+            $response['status'] = 2;
+            $response['message'] = $errors[0];
+            
+            echo json_encode($response);
+        } else {
+            $UserDetailsArray = $login->userDetailsArray;
+            echo json_encode($UserDetailsArray);
+        }
+    } catch (Exception $e) {
+        $response['status'] = 2;
+        $response['message'] = $e->getMessage();
+        echo json_encode($response);
+    }
+}
+
 
 // login user using email address
 function logout($entityManager)

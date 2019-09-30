@@ -6,13 +6,11 @@ Options +FollowSymlinks
 RewriteEngine on
 
 # map neat URL to internal URL
-RewriteRule ^getPath/(.+)/$   /foodly/src/AppBundle/Controller/GumtreeController.php?getPath=$1 [nc,qsa]
-RewriteRule ^getConfig/(.+)/$   /foodly/src/AppBundle/Controller/GumtreeController.php?getConfig=$1 [nc,qsa]
-RewriteRule ^getAdvertsByAccount/(.+)/$   /foodly/src/AppBundle/Controller/GumtreeController.php?getAdvertsByAccount=$1 [nc,qsa]
-RewriteRule ^getAccountByEmail/(.+)/$   /foodly/src/AppBundle/Controller/GumtreeController.php?getAccountByEmail=$1 [nc,qsa]
-RewriteRule ^updateAdvertState/(.+)/(.+)/$   /foodly/src/AppBundle/Controller/GumtreeController.php?updateAdvertState=$1&newstate=$2 [nc,qsa]
-
-
+RewriteRule ^newuser/(.+)/(.+)/(.+)/$   /src/AppBundle/Controller/controller_security.php?register=$1&password=$2&confirm=$3 [nc,qsa]
+RewriteRule ^getuser/(.+)/$   /src/AppBundle/Controller/controller_security.php?getuser=$1 [nc,qsa]
+RewriteRule ^login/(.+)/(.+)/$   /src/AppBundle/Controller/controller_security.php?login=$1&password=$2 [nc,qsa]
+RewriteRule ^logout/$   /src/AppBundle/Controller/controller_security.php?logout=true [nc,qsa]
+RewriteRule ^logout   /src/AppBundle/Controller/controller_security.php?logout=true [nc,qsa]
 
 # php -- BEGIN cPanel-generated handler, do not edit
 # NOTE this account's php is controlled via FPM and the vhost, this is a place holder.
