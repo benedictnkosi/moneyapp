@@ -12,8 +12,8 @@ $config    = Setup::createXMLMetadataConfiguration(array(__DIR__."/src/AppBundle
 // database configuration parameters
 $conn = array(
     'driver'   => 'pdo_mysql',
-    'user'     => 'sixtylee_user',
-    'password' => ')*kTmcMYz7zB',
+    'user'     => 'root',
+    'password' => '',
     'dbname'   => 'sixtylee_moneyapp_preprod',
 	'host' => 'localhost',
 );

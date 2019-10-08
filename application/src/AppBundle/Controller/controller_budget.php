@@ -20,12 +20,21 @@ if (isset($_GET['populateCategoriesSelect'])) {
 
 if (isset($_GET['populateTransactionNameSelect'])) {
     if ($_GET['populateTransactionNameSelect']) :
-    
-   
+
         populateTransactionNameSelect($entityManager);
     
     endif;
 
+}
+
+
+if (isset($_REQUEST['getTransactionNames'])) {
+    if ($_REQUEST['getTransactionNames']) :
+    
+    getTransactionNames($entityManager);
+    
+    endif;
+    
 }
 
 if (isset($_POST['textTrasnctionAmount'])) {
@@ -92,7 +101,6 @@ if (isset($_GET['populateIncomeVsBudgetProgress'])) {
     endif;
 
 }
-
 
 if (isset($_GET['captureNewBudgetItem'])) {
     if ($_GET['captureNewBudgetItem']) :
@@ -392,7 +400,6 @@ function populateTransactionNameSelect($entityManager)
             $dql = "Select utn, tn from UserTransactionName utn JOIN utn.transaction tn
 where utn.active = 1 and utn.user = " . $_SESSION['user_id'] . " ORDER BY tn.name asc";
 
-            
             $query = $entityManager->createQuery($dql);
             $query->setMaxResults(100);
             $userTransactionNames = $query->getResult();
@@ -406,7 +413,7 @@ where utn.active = 1 and utn.user = " . $_SESSION['user_id'] . " ORDER BY tn.nam
                 }
 
                 echo '<option value="new_custom">--Add Custom Name--</option>';
-            }else{
+            } else {
                 echo '<option value="new_custom">--Add Custom Name--</option>';
             }
         } else {
@@ -414,6 +421,48 @@ where utn.active = 1 and utn.user = " . $_SESSION['user_id'] . " ORDER BY tn.nam
         }
     } catch (Exception $e) {
         echo '<option value="">' . $e->getMessage() . '</option>';
+    }
+}
+
+function getTransactionNames($entityManager)
+{
+    
+    $transactionsArray = array();
+    
+    try {
+        // echo $_SESSION ['user_id'];
+        $category = $entityManager->getRepository('TransactionCategory')->findOneBy(array(
+            'active' => 1,
+            'name' => urldecode($_REQUEST['getTransactionNames'])
+        ));
+
+        
+        if ($category != null) {
+
+            $dql = "Select utn, tn from UserTransactionName utn JOIN utn.transaction tn
+where utn.active = 1 and utn.user = " . $_REQUEST['UserId'] . " ORDER BY tn.name asc";
+
+            $query = $entityManager->createQuery($dql);
+            $query->setMaxResults(100);
+            $userTransactionNames = $query->getResult();
+
+            if ($userTransactionNames != null) {
+                // echo "test";
+                foreach ($userTransactionNames as &$userTransactionName) {
+                    if ($userTransactionName->getTransaction()->getCategory() == $category) {
+                        // echo '<option value="' . $userTransactionName->getUserTransactionNameId() . '">' . $userTransactionName->getTransaction()->getName() . '</option>';
+                        $response['value'] = $userTransactionName->getUserTransactionNameId();
+                        $response['text'] = $userTransactionName->getTransaction()->getName();
+
+                        array_push($transactionsArray, $response);
+                    }
+                }
+            }
+        } 
+        
+        echo json_encode($transactionsArray);
+    } catch (Exception $e) {
+        echo json_encode($transactionsArray);
     }
 }
 
@@ -577,8 +626,6 @@ ORDER BY tn.name asc";
         echo $e;
     }
 }
-
-
 
 function getCategoryBudgetForMonthHTML($entityManager, $categoryName, $selectedMonth, $selectedYear)
 {

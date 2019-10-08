@@ -135,13 +135,19 @@ class Login
     public function getuser($entityManager)
     {
         try {
+            
+            try {
+                startSession();
+            } catch (Exception $e) {}
+            
             // check login form contents
-            if (empty($_REQUEST['getuser'])) {
+            if (empty($_SESSION['username'])) {
                 $this->errors[] = "username field was empty.";
             } else {
 
+                //print_r($_SESSION);
                 $user = $entityManager->getRepository('User')->findOneBy(array(
-                    'username' => $_REQUEST['getuser']
+                    'username' => $_SESSION['username']
                 ));
 
                 if ($user) {

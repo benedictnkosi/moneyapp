@@ -11,14 +11,11 @@ function getUrlParameter(sParam) {
 	return false;
 }
 
-
 function saveCookieToSession() {
 	var JsonCookie = jQuery.parseJSON(unescape(getCookie("whyage65_moneyapp")));
 	sessionStorage.whyage65_username = JsonCookie['username'];
 	sessionStorage.whyage65_user_id = JsonCookie['user_id'];
-	}
-
-
+}
 
 function getCookie(cname) {
 	var name = cname + "=";
@@ -51,48 +48,88 @@ function replaceParameter(strKey, strValue) {
 	return allParameters;
 }
 
-function getNextMonth(currentMonth,direction){
-	const monthNames = ["January", "February", "March", "April", "May", "June",
-		  "July", "August", "September", "October", "November", "December"
-		];
-	
+function getNextMonth(currentMonth, direction) {
+	const monthNames = [ "January", "February", "March", "April", "May",
+			"June", "July", "August", "September", "October", "November",
+			"December" ];
+
 	indexOfCurrentMonth = monthNames.findIndex(currentMonth);
 	console.log(indexOfCurrentMonth);
-	
-	if(direction.includes('forward')){
+
+	if (direction.includes('forward')) {
 		indexOfCurrentMonth = indexOfCurrentMonth + 1;
-	}else{
+	} else {
 		indexOfCurrentMonth = indexOfCurrentMonth - 1;
 	}
-	
-	
-	
-	if(currentMonth.includes('January') &&  direction.includes('back')){
+
+	if (currentMonth.includes('January') && direction.includes('back')) {
 		indexOfCurrentMonth = 11;
 	}
-	
-	if(currentMonth.includes('December') &&  direction.includes('forward')){
+
+	if (currentMonth.includes('December') && direction.includes('forward')) {
 		indexOfCurrentMonth = 0;
 	}
-	
-	newMonth = monthNames[indexOfCurrentMonth];
-	
 
-	return newMonth; 
+	newMonth = monthNames[indexOfCurrentMonth];
+
+	return newMonth;
 }
 
+function getNextYear(currentMonth, currentYear, direction) {
 
-function getNextYear(currentMonth, currentYear,direction){
-	
-	//get year
-	if(currentMonth.includes('January') &&  direction.includes('back')){
+	// get year
+	if (currentMonth.includes('January') && direction.includes('back')) {
 		currentYear = currentYear - 1;
 	}
-	
-	if(currentMonth.includes('December') &&  direction.includes('forward')){
+
+	if (currentMonth.includes('December') && direction.includes('forward')) {
 		currentYear = currentYear + 1;
 	}
-	
+
 	return 
+
+	
+
+}
+
+function populateDropdown(element, jsonData, href, callback) {
+	$.each(jsonData, function(i, obj) {
+		element.append(new Option(obj.text, obj.value));
+	});
+	
+	callback(element, href);
+	return 
+
+	
+
+}
+
+function addEvent(element, href) {
+
+
+	if(element.id.localeCompare("select_categories") == 0 ){
+		populateTransactionNameSelectJson("Personal Expenses");
+	}
+	
+	
+	$("#" + element.id).change(function() {
+		var selectedTransaction = $(this).children("option:selected").val();
+		if (selectedTransaction.includes("new_custom")) {
+			window.location.href = href;
+		}
+		
+		if(element.id.localeCompare("select_categories") == 0 ){
+			var selectedCategory = $("#" + element.id)
+			.children("option:selected")
+			.val();
+			populateTransactionNameSelectJson(selectedCategory);
+		}
+	});
+	
+	
+	
+	
+
+
 }
 

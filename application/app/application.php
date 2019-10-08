@@ -54,9 +54,9 @@ define("DB_HOST", "localhost");
 
 define("DB_NAME", "sixtylee_moneyapp_preprod");
 
-define("DB_USER", "sixtylee_user");
+define("DB_USER", "root");
 
-define("DB_PASSWORDWORD", ")*kTmcMYz7zB");
+define("DB_PASSWORDWORD", "");
 
 define("ADMIN_AUTH_CODE", "591f5e3b9b48a");
 

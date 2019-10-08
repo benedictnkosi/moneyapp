@@ -18,6 +18,15 @@ if (isset($_GET['populateCategoriesSelect'])) {
 
 }
 
+if (isset($_REQUEST['getCategories'])) {
+    if ($_REQUEST['getCategories']) :
+    getCategories($entityManager);
+    endif;
+  
+}
+
+
+
 if (isset($_GET['populateTransactionNameSelect'])) {
     if ($_GET['populateTransactionNameSelect']) :
         populateTransactionNameSelect($entityManager);
@@ -624,6 +633,38 @@ function populateCategoriesSelect($entityManager)
     }
 }
 
+
+function getCategories($entityManager)
+{
+    
+    $categoriesArray = array();
+    
+    try {
+        
+        // ECHO "test";
+        $categories = $entityManager->getRepository('TransactionCategory')->findBy(array(
+            'active' => 1
+        ), array(
+            'name' => 'ASC'
+        ));
+        
+        if ($categories != null) {
+            foreach ($categories as &$category) {
+                $response['value'] = $category->getName();
+                $response['text'] = $category->getName();
+                
+                array_push($categoriesArray, $response);
+            }
+        }
+        
+        echo json_encode($categoriesArray);
+        
+    } catch (Exception $e) {
+        echo json_encode($categoriesArray);
+    }
+}
+
+
 function populateTransactionNameSelect($entityManager)
 {
     try {
@@ -647,7 +688,7 @@ function populateTransactionNameSelect($entityManager)
 where b.active = 1 and b.user = " . $_SESSION['user_id'] . " and b.amount > 0 
 and tc.name = '" . $category->getName() . "' ORDER BY tn.name asc";
 
-            echo $dql;
+            //echo $dql;
             $query = $entityManager->createQuery($dql);
             $query->setMaxResults(100);
             $budgets = $query->getResult();

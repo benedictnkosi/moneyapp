@@ -138,6 +138,9 @@ function login($entityManager)
 function getuser($entityManager)
 {
     try {
+        
+
+
         $login = new login($entityManager);
         $login->getuser($entityManager);
        
