@@ -7,11 +7,11 @@ RewriteEngine on
 
 # map neat URL to internal URL
 RewriteRule ^newuser/(.+)/(.+)/(.+)/$   src/AppBundle/Controller/controller_security.php?register=$1&password=$2&confirm=$3 [nc,qsa]
-RewriteRule ^getuser/$   /src/AppBundle/Controller/controller_security.php?getuser=true [nc,qsa]
-RewriteRule ^login/(.+)/(.+)/$   /src/AppBundle/Controller/controller_security.php?login=$1&password=$2 [nc,qsa]
-RewriteRule ^logout/$   /src/AppBundle/Controller/controller_security.php?logout=true [nc,qsa]
-RewriteRule ^getcategories/$   /src/AppBundle/Controller/controller_transaction.php?getCategories=true [nc,qsa]
-RewriteRule ^gettransactionnames/(.+)/(.+)/$   /src/AppBundle/Controller/controller_budget.php?getTransactionNames=$1&UserId=$2 [nc,qsa]
+RewriteRule ^getuser/$   src/AppBundle/Controller/controller_security.php?getuser=true [nc,qsa]
+RewriteRule ^login/(.+)/(.+)/$   src/AppBundle/Controller/controller_security.php?login=$1&password=$2 [nc,qsa]
+RewriteRule ^logout/$   src/AppBundle/Controller/controller_security.php?logout=true [nc,qsa]
+RewriteRule ^getcategories/$   src/AppBundle/Controller/controller_transaction.php?getCategories=true [nc,qsa]
+RewriteRule ^gettransactionnames/(.+)/(.+)/$   src/AppBundle/Controller/controller_budget.php?getTransactionNames=$1&UserId=$2 [nc,qsa]
 
 
 # php -- BEGIN cPanel-generated handler, do not edit
