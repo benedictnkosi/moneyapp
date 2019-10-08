@@ -12,4 +12,4 @@
 /application/web/bundles/
 application/bootstrap.php
 /application/app/application.php
-/application/bootstrap.php
+application/bootstrap.php
