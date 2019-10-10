@@ -40,14 +40,7 @@ define("COMPANY_TEL", "084 593 2223");
 
 define("COMPANY_ADDRESS", "340 Kent Avenue, Ferndale, Randburg ");
 
-
-
-
-
-
-
 define("NOTIFICATION_EMAIL_GROUP", "");
-
 
 
 define("DB_HOST", "localhost");

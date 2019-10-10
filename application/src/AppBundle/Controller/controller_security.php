@@ -117,7 +117,7 @@ function login($entityManager)
         if (sizeof($login->errors) > 0) {
             $response['status'] = 2;
             $response['message'] = $errors[0];
-
+            header('Content-Type: application/json');
             echo json_encode($response);
         } else {
             $response['status'] = 1;
@@ -125,11 +125,13 @@ function login($entityManager)
             $response['username'] = $username;
 
             $response['user_id'] = $user_id;
+            header('Content-Type: application/json');
             echo json_encode($response);
         }
     } catch (Exception $e) {
         $response['status'] = 2;
         $response['message'] = $e->getMessage();
+        header('Content-Type: application/json');
         echo json_encode($response);
     }
 }
@@ -153,6 +155,7 @@ function getuser($entityManager)
             echo json_encode($response);
         } else {
             $UserDetailsArray = $login->userDetailsArray;
+            header('Content-Type: application/json');
             echo json_encode($UserDetailsArray);
         }
     } catch (Exception $e) {
